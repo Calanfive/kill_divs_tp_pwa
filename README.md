@@ -82,7 +82,7 @@ export default defineConfig({
 })
 ```
 
-Pour cela gÃ©nÃ©rez un dissier d'images grÃ¢ce Ã  cet outil :
+Pour cela gÃ©nÃ©rez un dossier d'images grÃ¢ce Ã  cet outil :
 https://tools.crawlink.com/tools/pwa-icon-generator/
 
 Et insÃ©rez les images dans le dossier `public` de votre projet.
