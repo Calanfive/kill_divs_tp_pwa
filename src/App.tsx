@@ -14,7 +14,7 @@ const router = createBrowserRouter([
     element: <Jeu />,
   },
   {
-    path: "/resultat",
+    path: "/resultat/:initialtime",
     element: <Resultat />
   }
 ]);
