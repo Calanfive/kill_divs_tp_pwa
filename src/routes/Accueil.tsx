@@ -11,7 +11,7 @@ export default function Accueil() {
     
 
     return (
-        <div>
+        <div className="home">
             <h1>KILL THE DIVS</h1>
             <button onClick={handleSubmit}>START</button>
         </div>
