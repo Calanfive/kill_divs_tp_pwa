@@ -1,11 +1,10 @@
-import { useCallback, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import Resultat from "./Resultat";
 
 export default function Jeu() {
     const [cptClick, setCptClick] = useState(0);
     const [initialTime, setInitialTime] = useState<any>(0);
-    const [ping, setPing] = useState(0);
+    const [_, setPing] = useState(0);
     const [posTop, setPosTop] = useState(0)
     const [posLeft, setPosLeft] = useState(0)
     const navigate = useNavigate();
