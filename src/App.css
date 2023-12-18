@@ -7,15 +7,25 @@
 html, body , #root, .jeu{
   height: 100%;
   width: 100%;
-}
-
-body{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
   background-color: rgb(8, 7, 7);
-  position: relative;
+  color: white;
 }
 
 .jeu {
-  border: 10px solid yellow;
+  border: 5px solid yellow;
+  position: relative;
+}
+
+.cpt_div {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  text-align: end;
 }
 
 .circleToKill {
