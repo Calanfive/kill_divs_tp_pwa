@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
-const audio = new Audio("/son.mp3");
+const audio = new Audio("/bell.mp3");
 
 export default function Jeu() {
     const [cptClick, setCptClick] = useState(0);

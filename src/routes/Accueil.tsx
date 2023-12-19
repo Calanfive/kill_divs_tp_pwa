@@ -2,7 +2,7 @@ import { useCallback, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { BeforeInstallPromptEvent } from "../typings";
 
-const audio = new Audio("/intro.mp3");
+const audio = new Audio("/bellson.mp3");
 // const audioStart = new Audio("/qulbutoke.mp3");
 
 export default function Accueil() {
@@ -38,23 +38,15 @@ export default function Accueil() {
 
         window.addEventListener('beforeinstallprompt', (event) => {
             console.log('before install')
-            // Prevent the mini-infobar from appearing on mobile
             event.preventDefault();
-            // @ts-ignore
-            // Optionally, send analytics event that PWA install promo was shown.
-            // console.log(`'beforeinstallprompt' event was fired.`);
             setDeferredPrompt(event as BeforeInstallPromptEvent);
         });
         
         window.addEventListener('appinstalled', () => {
-            // Clear the deferredPrompt so it can be garbage collected
             setDeferredPrompt(null);
-            // Optionally, send analytics event to indicate successful install
-            // console.log('PWA was installed');
         });
 
         Notification.requestPermission().then((permission) => {
-            // If the user accepts, let's create a notification
             if (permission === "granted") {
                 setTimeout(() => {
                     new Notification("Hi there, press start", {body: 'Next updates are coming soon =)'});
@@ -69,13 +61,9 @@ export default function Accueil() {
     }, [navigate]);
     
         const handleInstal = useCallback(async () => {
-            // Show the install prompt
             deferredPrompt?.prompt();
-            // Wait for the user to respond to the prompt
             const { outcome } = await deferredPrompt!.userChoice;
-            // Optionally, send analytics event with outcome of user choice
             console.log(`User response to the install prompt: ${outcome}`);
-            // We've used the prompt, and can't use it again, throw it away
             deferredPrompt = null;
         }, [deferredPrompt])
 
