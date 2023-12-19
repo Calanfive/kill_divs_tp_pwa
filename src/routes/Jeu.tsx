@@ -18,6 +18,10 @@ export default function Jeu() {
         audio.pause()
         audio.currentTime = 0
         audio.play()
+
+        if ('vibrate' in navigator) {
+            navigator.vibrate(200);
+        }
         
         if (cptClick < 2) {
             setCptClick(cptClick + 1)
