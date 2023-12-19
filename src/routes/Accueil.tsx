@@ -11,6 +11,15 @@ export default function Accueil() {
         audio.pause()
         audio.currentTime = 0
         audio.play()
+
+        Notification.requestPermission().then((permission) => {
+            // If the user accepts, let's create a notification
+            if (permission === "granted") {
+                setTimeout(() => {
+                    new Notification("Hi there", {body: 'Press start'});
+                }, 1000);
+            }
+        });
     }, [])
 
     const handleSubmit = useCallback(() => {
