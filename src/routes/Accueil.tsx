@@ -22,12 +22,18 @@ export default function Accueil() {
         }
 
         if ("geolocation" in navigator) {
-            navigator.geolocation.getCurrentPosition(position => {
+            navigator.geolocation.getCurrentPosition(async position => {
                 console.log(position.coords.latitude);
                 console.log(position.coords.longitude);
-            })                
+                console.log(position.coords.accuracy);  
+                const response = await fetch(`https://api.bigdatacloud.net/data/reverse-geocode-client?latitude=${position.coords.latitude}&longitude=${position.coords.longitude}&localityLanguage=en`)
+                const data = await response.json()
+                console.log("geoloc", data.countryName);
+            })
 
-            
+        }
+        else {
+            console.error("Geolocation is not supported by this browser.")
         }
 
         window.addEventListener('beforeinstallprompt', (event) => {
