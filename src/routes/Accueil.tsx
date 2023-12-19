@@ -16,7 +16,7 @@ export default function Accueil() {
             // If the user accepts, let's create a notification
             if (permission === "granted") {
                 setTimeout(() => {
-                    new Notification("Hi there", {body: 'Press start'});
+                    new Notification("Hi there, press start", {body: 'Updates are coming soon !'});
                 }, 1000);
             }
         });
@@ -27,11 +27,15 @@ export default function Accueil() {
         navigate('/jeu')
     }, [navigate]);
     
+    const handleInstal = useCallback(() => {
+
+    }, [])
 
     return (
         <div className="home">
             <h1>KILL THE DIVS</h1>
-            <button onClick={handleSubmit}>START</button>
+            <button className="start-button" onClick={handleSubmit}>START</button>
+            <button className="instal-button" onClick={handleInstal}>Installer</button>
         </div>
     )
 }
