@@ -50,7 +50,7 @@ export default function Accueil() {
         Notification.requestPermission().then((permission) => {
             if (permission === "granted") {
                 setTimeout(() => {
-                    new Notification("Hi there, press start", {body: 'Next updates are coming soon =)'});
+                    new Notification("Hi there, next updates are coming soon =)", {body: 'Double tap for full screen'});
                 }, 100);
               }
           });

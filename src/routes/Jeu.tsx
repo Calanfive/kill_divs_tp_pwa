@@ -12,8 +12,8 @@ export default function Jeu() {
     const navigate = useNavigate();
     
     const handleClick = () => {
-        const randomPosTop = Math.floor(Math.random() * 100) +1;
-        const randomPosLeft = Math.floor(Math.random() * 100) +1;
+        const randomPosTop = Math.floor(Math.random() * 91) +1;
+        const randomPosLeft = Math.floor(Math.random() * 91) +1;
         
         audio.pause()
         audio.currentTime = 0
