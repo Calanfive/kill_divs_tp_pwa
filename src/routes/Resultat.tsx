@@ -3,7 +3,7 @@ import { useNavigate, useParams } from "react-router-dom";
 export default function Resultat(){
     const params = useParams();
     const navigate = useNavigate();
-
+    
     const handleClickPlay = () => {
         navigate('/')
     }

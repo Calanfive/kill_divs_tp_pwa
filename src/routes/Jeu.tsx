@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
+const audio = new Audio("/son.mp3");
+
 export default function Jeu() {
     const [cptClick, setCptClick] = useState(0);
     const [initialTime, setInitialTime] = useState<any>(0);
@@ -9,14 +11,18 @@ export default function Jeu() {
     const [posLeft, setPosLeft] = useState(0)
     const navigate = useNavigate();
     
-    
     const handleClick = () => {
         const randomPosTop = Math.floor(Math.random() * 100) +1;
         const randomPosLeft = Math.floor(Math.random() * 100) +1;
-        setPosTop(randomPosTop)
-        setPosLeft(randomPosLeft)
-        if (cptClick < 9) {
+        
+        audio.pause()
+        audio.currentTime = 0
+        audio.play()
+        
+        if (cptClick < 2) {
             setCptClick(cptClick + 1)
+            setPosTop(randomPosTop)
+            setPosLeft(randomPosLeft)
         }
         else {
             navigate('/resultat/' + (Date.now() - initialTime) / 1000)
