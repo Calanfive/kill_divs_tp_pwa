@@ -7,6 +7,7 @@ const audio = new Audio("/bellson.mp3");
 
 export default function Accueil() {
     const navigate = useNavigate();
+    const [showCountry, setShowCountry] = useState<string>("");
     let [deferredPrompt, setDeferredPrompt] = useState<BeforeInstallPromptEvent | null>();
 
     console.log('deferred', deferredPrompt)
@@ -28,9 +29,9 @@ export default function Accueil() {
                 console.log(position.coords.accuracy);  
                 const response = await fetch(`https://api.bigdatacloud.net/data/reverse-geocode-client?latitude=${position.coords.latitude}&longitude=${position.coords.longitude}&localityLanguage=en`)
                 const data = await response.json()
-                console.log("geoloc", data.countryName);
+                console.log("geoloc", data);
+                setShowCountry(data.countryCode)
             })
-
         }
         else {
             console.error("Geolocation is not supported by this browser.")
@@ -75,7 +76,7 @@ export default function Accueil() {
                 ? <button className="instal-button" onClick={handleInstal}>DOWNLOAD</button> 
                 : null
             }
-            <div className="position" >Location</div>
+            <div className="location">Location : {showCountry}</div>
         </div>
     )
 }

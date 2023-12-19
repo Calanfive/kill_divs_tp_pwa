@@ -26,7 +26,7 @@ export default function Resultat(){
     return (
         <div>
             <div className="result">
-                <h1>YOU KILL THE DIVS !</h1>
+                <h1>YOU KILLED THE DIVS !</h1>
                 <p>Your result : {params.initialtime} </p>
                 <button onClick={handleClickPlay}>PLAY AGAIN</button>
             </div>
