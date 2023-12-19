@@ -33,11 +33,11 @@ Choisissez des amÃ©liorations Ã  apporter au jeu dans l'order que vous voulez
 
 - Ajouter un son quand on clique sur une div (Utiliser l'API Web Audio) x
 - Ajouter des vibrations quand on clique sur une div (Utiliser l'API Vibration) x
-- Ajouter une notification quand on clique sur la derniÃ¨re div avec affichage du temps total (Utiliser l'API Notification)
+- Ajouter une notification quand on clique sur la derniÃ¨re div avec affichage du temps total (Utiliser l'API Notification) x
 - Ajouter un bouton "Pause" qui met le jeu en pause (Utiliser l'API Page Visibility)
 - Utiliser l'api suivante et la geolocalisation pour afficher le pays de l'utilisateur :
 https://api.bigdatacloud.net/data/reverse-geocode-client?latitude=37.42159&longitude=-122.0837&localityLanguage=en
 - stocker les meilleurs scores dans le local storage et les afficher dans l'Ã©cran de fin de partie
 - Ajouter un bouton "Fullscreen" qui permet de mettre le jeu en plein Ã©cran (Utiliser l'API Fullscreen)
 - Ajouter un bouton "Share" qui permet de partager le jeu sur les rÃ©seaux sociaux (Utiliser l'API Share)
-- Ajouter un bouton "Install" qui permet d'installer le jeu sans passer par la barre URL
+- Ajouter un bouton "Install" qui permet d'installer le jeu sans passer par la barre URL x

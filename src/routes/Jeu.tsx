@@ -29,15 +29,6 @@ export default function Jeu() {
             setPosLeft(randomPosLeft)
         }
         else {
-            Notification.requestPermission().then((permission) => {
-                // If the user accepts, let's create a notification
-                if (permission === "granted") {
-                    setTimeout(() => {
-                        new Notification("WELCOME TO BALA BALA!", {body: 'Please kill the divs'});
-                    }, 100);
-                    
-                  }
-              });
             navigate('/resultat/' + (Date.now() - initialTime) / 1000)
         }
     }

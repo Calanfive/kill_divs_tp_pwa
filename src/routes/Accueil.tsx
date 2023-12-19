@@ -21,13 +21,22 @@ export default function Accueil() {
             console.error('error de son', e)
         }
 
+        if ("geolocation" in navigator) {
+            navigator.geolocation.getCurrentPosition(position => {
+                console.log(position.coords.latitude);
+                console.log(position.coords.longitude);
+            })                
+
+            
+        }
+
         window.addEventListener('beforeinstallprompt', (event) => {
             console.log('before install')
             // Prevent the mini-infobar from appearing on mobile
             event.preventDefault();
             // @ts-ignore
             // Optionally, send analytics event that PWA install promo was shown.
-            console.log(`'beforeinstallprompt' event was fired.`);
+            // console.log(`'beforeinstallprompt' event was fired.`);
             setDeferredPrompt(event as BeforeInstallPromptEvent);
         });
         
@@ -35,17 +44,17 @@ export default function Accueil() {
             // Clear the deferredPrompt so it can be garbage collected
             setDeferredPrompt(null);
             // Optionally, send analytics event to indicate successful install
-            console.log('PWA was installed');
+            // console.log('PWA was installed');
         });
 
         Notification.requestPermission().then((permission) => {
             // If the user accepts, let's create a notification
             if (permission === "granted") {
                 setTimeout(() => {
-                    new Notification("Hi there, press start", {body: 'Updates are coming soon !'});
-                }, 1000);
-            }
-        });
+                    new Notification("Hi there, press start", {body: 'Next updates are coming soon =)'});
+                }, 100);
+              }
+          });
     }, [])
 
     const handleSubmit = useCallback(() => {
@@ -72,6 +81,7 @@ export default function Accueil() {
                 ? <button className="instal-button" onClick={handleInstal}>DOWNLOAD</button> 
                 : null
             }
+            <div className="position" >Location</div>
         </div>
     )
 }
