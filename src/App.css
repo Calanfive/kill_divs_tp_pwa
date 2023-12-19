@@ -16,8 +16,30 @@ html, body , #root, .jeu{
 }
 
 .jeu {
-  border: 5px solid yellow;
   position: relative;
+}
+
+.home {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.location {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: end;
+  position: absolute;
+}
+
+.start-button {
+  z-index: 1;
 }
 
 .cpt_div {

@@ -30,7 +30,7 @@ export default function Accueil() {
                 const response = await fetch(`https://api.bigdatacloud.net/data/reverse-geocode-client?latitude=${position.coords.latitude}&longitude=${position.coords.longitude}&localityLanguage=en`)
                 const data = await response.json()
                 console.log("geoloc", data);
-                setShowCountry(data.countryCode)
+                setShowCountry(`${data.city} - ${data.countryCode}`)
             })
         }
         else {
