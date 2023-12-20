@@ -37,6 +37,18 @@ export default function Accueil() {
             console.error("Geolocation is not supported by this browser.")
         }
 
+        function shareGame(url: any) {
+            if (!navigator.share) {
+              return;
+            }
+            navigator.share({url}).then(() => {
+              console.log('The content was shared successfully');
+            }).catch(error => {
+              console.error('Error sharing the content', error);
+            });
+        }
+        shareGame(/kill-divs-tp-pwa-calanfive.vercel.app/);
+
         window.addEventListener('beforeinstallprompt', (event) => {
             console.log('before install')
             event.preventDefault();
