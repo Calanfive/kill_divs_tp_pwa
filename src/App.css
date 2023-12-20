@@ -38,8 +38,9 @@ html, body , #root, .jeu{
   position: absolute;
 }
 
-.start-button {
+.start-button, .share-button {
   z-index: 1;
+  margin: 4px;
 }
 
 .cpt_div {

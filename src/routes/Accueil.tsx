@@ -36,30 +36,19 @@ export default function Accueil() {
         else {
             console.error("Geolocation is not supported by this browser.")
         }
-
-        function shareGame(url: any) {
-            if (!navigator.share) {
-              return;
-            }
-            navigator.share({url}).then(() => {
-              console.log('The content was shared successfully');
-            }).catch(error => {
-              console.error('Error sharing the content', error);
-            });
-        }
-        shareGame(/kill-divs-tp-pwa-calanfive.vercel.app/);
-
-        window.addEventListener('beforeinstallprompt', (event) => {
-            console.log('before install')
-            event.preventDefault();
-            setDeferredPrompt(event as BeforeInstallPromptEvent);
-        });
         
-        window.addEventListener('appinstalled', () => {
-            setDeferredPrompt(null);
-        });
-
-        Notification.requestPermission().then((permission) => {
+        
+        window.addEventListener('beforeinstallprompt', (event) => {
+                console.log('before install')
+                event.preventDefault();
+                setDeferredPrompt(event as BeforeInstallPromptEvent);
+            });
+            
+            window.addEventListener('appinstalled', () => {
+                setDeferredPrompt(null);
+            });
+            
+            Notification.requestPermission().then((permission) => {
             if (permission === "granted") {
                 setTimeout(() => {
                     new Notification("Hi there, next updates are coming soon =)", {body: 'Double tap for full screen'});
@@ -73,17 +62,33 @@ export default function Accueil() {
         navigate('/jeu')
     }, [navigate]);
     
-        const handleInstal = useCallback(async () => {
-            deferredPrompt?.prompt();
-            const { outcome } = await deferredPrompt!.userChoice;
-            console.log(`User response to the install prompt: ${outcome}`);
-            deferredPrompt = null;
-        }, [deferredPrompt])
-
+    const handleInstal = useCallback(async () => {
+        deferredPrompt?.prompt();
+        const { outcome } = await deferredPrompt!.userChoice;
+        console.log(`User response to the install prompt: ${outcome}`);
+        deferredPrompt = null;
+    }, [deferredPrompt])
+    
+    const handleShare = useCallback(() => {
+        
+        function shareGame(url: any) {
+            if (!navigator.share) {
+                return;
+                }
+                navigator.share({url}).then(() => {
+                    console.log('The content was shared successfully');
+                }).catch(error => {
+                    console.error('Error sharing the content', error);
+                });
+            }
+            shareGame(URL);
+    }, []);
+    
     return (
         <div className="home">
             <h1>KILL THE DIVS</h1>
             <button className="start-button" onClick={handleSubmit}>START</button>
+            <button className="share-button" onClick={handleShare}>SHARE</button>
             {deferredPrompt 
                 ? <button className="instal-button" onClick={handleInstal}>DOWNLOAD</button> 
                 : null
