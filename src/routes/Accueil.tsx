@@ -70,18 +70,14 @@ export default function Accueil() {
     }, [deferredPrompt])
     
     const handleShare = useCallback(() => {
-        
-        function shareGame(url: any) {
-            if (!navigator.share) {
-                return;
-                }
-                navigator.share({url}).then(() => {
-                    console.log('The content was shared successfully');
-                }).catch(error => {
-                    console.error('Error sharing the content', error);
-                });
+        if (!navigator.share) {
+            return;
             }
-            shareGame(URL);
+            navigator.share({url: 'https://kill-divs-tp-pwa-calanfive.vercel.app/'}).then(() => {
+                console.log('The content was shared successfully');
+            }).catch(error => {
+                console.error('Error sharing the content', error);
+            });
     }, []);
     
     return (
