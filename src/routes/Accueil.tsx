@@ -79,16 +79,26 @@ export default function Accueil() {
                 console.error('Error sharing the content', error);
             });
     }, []);
+
+    // const handeSwitchFullScreen = () => {
+    //     if (document.fullscreenElement) {
+    //         document.exitFullscreen()
+    //     } else {
+    //         document.documentElement.requestFullscreen()
+    //     }
+    // }
     
     return (
         <div className="home">
-            <h1>KILL THE DIVS</h1>
-            <button className="start-button" onClick={handleSubmit}>START</button>
-            <button className="share-button" onClick={handleShare}>SHARE</button>
-            {deferredPrompt 
-                ? <button className="instal-button" onClick={handleInstal}>DOWNLOAD</button> 
-                : null
-            }
+            <div className="home-content">
+                <h1>KILL THE DIVS</h1>
+                <button className="start-button" onClick={handleSubmit}>START</button>
+                <button className="share-button" onClick={handleShare}>SHARE</button>
+                {deferredPrompt 
+                    ? <button className="instal-button" onClick={handleInstal}>DOWNLOAD</button> 
+                    : null
+                }
+            </div>
             <div className="location">Location : {showCountry}</div>
         </div>
     )

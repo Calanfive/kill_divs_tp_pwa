@@ -11,8 +11,7 @@ export default function Resultat(){
         try {
             audio.pause()
             audio.currentTime = 1
-            audio.play()
-        }
+            audio.play()        }
         catch(e){
             console.error('error de son', e)
         }
