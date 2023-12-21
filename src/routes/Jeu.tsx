@@ -35,8 +35,18 @@ export default function Jeu() {
         else {
             const result = ((Date.now() - initialTime) / 1000);
             navigate('/resultat/' + result)
-            JSON.stringify(localStorage.getItem('result'));
-            localStorage.setItem("result", JSON.stringify(result));
+            
+            const dataString = localStorage.getItem('results')
+            let oldData: number[];
+
+            if(dataString){
+                oldData = JSON.parse(dataString);
+            }
+            else {
+                oldData = []    
+            }
+            oldData.push(result)
+            localStorage.setItem("results", JSON.stringify(oldData));
         }
     }
 
